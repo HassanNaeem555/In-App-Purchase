@@ -39,12 +39,14 @@ const itemSkus = Platform.select({
 
 const itemSubs = Platform.select({
   ios: [
-    'com.cooni.point1000',
-    'com.cooni.point5000', // dooboolab
+    'monthly_package',
+    'yearly_package',
+    'com.theoriginalsleep.app.31536000', // dooboolab
   ],
   android: [
     'monthly_package',
-    'yearly_package', // subscription
+    'yearly_package',
+    'com.theoriginalsleep.app.31536000', // subscription
   ],
 });
 
@@ -154,7 +156,7 @@ class Page extends Component {
         Alert.alert('purchase error', JSON.stringify(error));
       },
     );
-    this.getItems();
+    this.getSubscriptions();
   }
 
   componentWillUnmount(): void {
@@ -267,7 +269,7 @@ class Page extends Component {
             </Text>
 
             <NativeButton
-              onPress={(): void => this.getItems()}
+              onPress={(): void => this.getSubscriptions()}
               activeOpacity={0.5}
               style={styles.btn}
               textStyle={styles.txt}>
